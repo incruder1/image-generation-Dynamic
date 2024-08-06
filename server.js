@@ -24,6 +24,10 @@ app.use(fileUpload());
 
 app.use(express.static(path.join(__dirname, "./client/build")));
 
+app.get("/test", (req, res) => {
+res.send("Hello Working File")
+});
+
 app.post("/generate-image", async (req, res) => {
 const { title, content } = req.body;
 const imageFile = req.files?.image;

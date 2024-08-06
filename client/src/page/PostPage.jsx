@@ -59,9 +59,11 @@ const PostPage = () => {
         formData.append('title', title);
         formData.append('content', content);
         if (image) { formData.append('image', image); }
+        // const backendUrl="https://dynamicimagegeneration.onrender.com/generate-image";
+        const backendUrl="http://localhost:5000";
 
         try {
-            const response = await axios.post('https://dynamicimagegeneration.onrender.com/generate-image', formData);
+            const response = await axios.post(`${backendUrl}/generate-image`, formData);
             if (response.statusText !== "OK") {
                 throw new Error('Failed to generate OG image');
             }
